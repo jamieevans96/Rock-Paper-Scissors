@@ -1,10 +1,86 @@
 <!DOCTYPE html>
 <html>
-<body>
 
-<h1>My First Heading</h1>
+<h1>ROCK PAPER SCISSORS</h1>
 
-<p>My first paragraph</p>
+<p id="p1"></p>
+<p id="p2"></p><br>
+<p id="p3"></p>
 
-</body>
+<script>
+
+var x = Math.floor(Math.random() * 3) + 1;
+
+function computerPlay() {
+  if (x == 1) {
+      return ("Rock");
+  }
+  else if (x == 2){
+  	  return ("Paper")
+  }
+  else if (x == 3) {
+  	  return ("Scissors");
+  }
+}
+
+document.getElementById("p1").innerHTML = ("Computer's choice: " + computerPlay());
+
+var i = 0;
+
+do {
+    var a = prompt ("Rock, paper or scissors?");
+    a = a.toLowerCase();
+
+    if (a == "rock" || a == "paper" || a == "scissors") {
+        i = i + 1;
+    }
+    else {
+        alert("Please type in a correct option!");
+    }
+}
+while (i < 1);
+
+
+if ((a == "rock") && (x == 1)) {
+    document.getElementById("p3").innerHTML = ("Draw!");
+}
+else if ((a == "rock") && (x == 2)){
+    document.getElementById("p3").innerHTML = ("You lose!");
+}
+else if ((a == "rock") && (x == 3)){
+    document.getElementById("p3").innerHTML = ("You win!");
+}
+else if ((a == "paper") && (x == 2)) {
+    document.getElementById("p3").innerHTML = ("Draw!");
+}
+else if ((a == "paper") && (x == 3)){
+    document.getElementById("p3").innerHTML = ("You lose!");
+}
+else if ((a == "paper") && (x == 1)){
+    document.getElementById("p3").innerHTML = ("You win!");
+}
+else if ((a == "scissors") && (x == 3)) {
+    document.getElementById("p3").innerHTML = ("Draw!");
+}
+else if ((a == "scissors") && (x == 1)){
+    document.getElementById("p3").innerHTML = ("You lose!");
+}
+else if ((a == "scissors") && (x == 2)){
+    document.getElementById("p3").innerHTML = ("You win!");
+}
+
+var p = a.length;
+
+var s = a.charAt(0);
+s = s.toUpperCase();
+
+a = a.substring(1);
+
+a = s + a;
+
+
+document.getElementById("p2").innerHTML = ("Player's choice: " + a);
+
+</script>
+
 </html>
