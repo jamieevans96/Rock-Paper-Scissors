@@ -1,15 +1,99 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+}
+
+.points {
+  display: inline;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  border: none;  
+  background-color: none; 
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.choice {
+  display: inline;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  border: 1px solid none;  
+  background-color: none; 
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.result {
+  display: block;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  width: 100px;
+  height: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  border: 1px solid none;  
+  background-color: none; 
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.pointsblock {
+  text-align: center;
+}
+
+.choiceblock {
+  text-align: center;
+}
+
+.inputblock {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#a {
+    width: 320px;
+    height: 24px;
+    font-size: 18px;
+}
+
+button {
+    height: 30px;
+}
+
+</style>
+
 <h1>ROCK PAPER SCISSORS</h1>
 
-<p id="p1">Computer's choice: *thinking*</p>
-<p id="p2">Player's choice: </p><br>
-<input type="text" placeholder="Rock, paper or scissors?" id="a">
-<button onclick="playRound()">Enter</button>
-<p id="p3"></p><br>
-<p id="p4">Computer's points: </p>
-<p id="p5">Player's points: </p>
+<div class="choiceblock">
+    <p class="choice" id="p1">Computer's choice: *thinking*</p>
+    <p class="choice" id="p2">Player's choice: </p><br>
+</div>
+
+<div class="inputblock">
+    <input type="text" placeholder="Rock, paper or scissors?" id="a">
+    <button onclick="playRound()">Enter</button>
+</div>
+
+<p class="result" id="p3"></p><br>
+
+<div class="pointsblock">
+    <div id="p4" class="points">Computer's points: 0</div>
+    <div id="p5" class="points">Player's points: 0</div>
+</div>
 
 <script>
 
