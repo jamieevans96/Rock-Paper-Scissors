@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+}
+
+#wrapper {
+}
+
+div {
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#title {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Bangers', cursive;
+  margin: 0 auto;
+  background-color: rgb(160, 57, 57);
+  color: white;
+  padding: 10px;
+}
+
+#choiceblock {
+  display: flex;
+  width: 800px;
+  margin: 10px auto;
+}
+
+.choice {
+  margin: 0 auto;
+}
+
+#inputblock {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  width: 400px;
+  padding: 10px;
+}
+
+.btn {
+  border: solid;
+  border-color: rgb(160, 160, 160);
+  border-radius: 10px;
+  background-color: rgb(240, 240, 240);
+  width: 80px;
+  height: auto;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  opacity: 60%;
+}
+
+.btn:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+#rock:hover {
+  background-color: rgb(255, 200, 200);
+}
+
+#paper:hover {
+  background-color: rgb(200, 255, 200);
+}
+
+#scissors:hover {
+  background-color: rgb(200, 200, 255);
+}
+
+#result {
+  text-align: center;
+  margin: 40px 0;
+  font-weight: bold;
+}
+
+#pointsblock {
+  display: flex;
+  width: 800px;
+  margin: 10px auto;
+}
+
+.points {
+  margin: 0 auto;
+}
