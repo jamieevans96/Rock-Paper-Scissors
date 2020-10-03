@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-</style>
+<link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style2.css">
+<title>Rock Paper Scissors</title>
 
+<div class='header'>Rock Paper Scissors</div>
 
-<div id="wrapper">
-<div id="title">ROCK PAPER SCISSORS</div>
+<div class='columnContainer'>
+    <div class='column' style='margin-left: 400px'>
+        <div class='scoreContainer'>
+            <div class='scoreHeader'>Your Score</div>
+            <div style='font-size: 60px' id='playerScore'>0</div>
+        </div>
+    </div>
 
-<div id="inputblock">
-    <div class="btn" id="rock" onclick="playRound()">Rock</div>
-    <div class="btn" id="paper" onclick="playRound()">Paper</div>
-    <div class="btn" id="scissors" onclick="playRound()">Scissors</div>
+    <div class='column'>
+        <div class="inputblock">
+            <div id='rock' class="btn">Rock</div>
+            <div id='paper' class="btn">Paper</div>
+            <div id='scissors' class="btn">Scissors</div>
+        </div>
+        <div class='choiceblock'>
+            <div class='choiceheader'>
+                <div>Your choice</div>
+                <div>CPU choice</div>
+            </div>
+            <div class='choicecontainer'>
+                <div></div>
+                <div>
+                    <div class="loaderContainer">
+                        <div class='loader'></div>
+                        <div class='loader'></div>
+                        <div class='loader'></div>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class='column'style='margin-right: 400px'>
+        <div class='scoreContainer'>
+            <div class='scoreHeader'>CPU Score</div>
+            <div style='font-size: 60px' id='computerScore'>0</div>
+        </div>
+    </div>
 </div>
 
-<div id="choiceblock">
-    <div id="p1" class="choice">Computer's choice: *thinking*</div>
-    <div id="p2" class="choice">Player's choice: </div>
-</div>
-
-<div id="result">Results: </div>
-
-<div id="pointsblock">
-    <div id="p4" class="points">Computer's points: 0</div>
-    <div id="p5" class="points">Player's points: 0</div>
-</div>
-</div>
-
-<script src="script2.js"></script>
+<script src="script.js"></script>
 
 </html>

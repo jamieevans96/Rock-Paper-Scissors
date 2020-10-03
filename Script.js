@@ -1,81 +1,105 @@
-let cp = 0;
-let pp = 0;
+let computerPoints = 0;
+let playerPoints = 0;
 
-function playRound() {
-    var computerChoice = Math.floor(Math.random() * 3) + 1;
+let computerChoice = '';
+let playerChoice = '';
 
-    if (computerChoice == 1) {
-        temp = "rock";
-    }
-    else if (computerChoice == 2) {
-        temp = "paper";
-    }
-    else if (computerChoice == 3) {
-        temp = "scissors";
-    }
+const rockBtn = document.querySelector('#rock')
+const paperBtn = document.querySelector('#paper')
+const scissorsBtn = document.querySelector('#scissors')
 
-    var x = event.target.id;
+const playerScore = document.querySelector('#playerScore')
+const computerScore = document.querySelector('#computerScore')
 
-    document.getElementById("p2").innerHTML = ("Player's choice: " + x);
-    document.getElementById("p1").innerHTML = ("Computer's choice: " + temp)
+const choiceBlock = document.querySelector('.choiceblock')
 
-    if (x == "rock" && computerChoice == 1) {
-		document.getElementById("result").innerHTML = ("Result: draw")
-    }
-    else if (x == "rock" && computerChoice == 2) {
-        document.getElementById("result").innerHTML = ("Result: lose")
-        cp= cp + 1;
-    }
-    else if (x == "rock" && computerChoice == 3) {
-        document.getElementById("result").innerHTML = ("Result: win")
-        pp= pp + 1;
-    }
-    
-    else if (x == "paper" && computerChoice == 1) {
-        document.getElementById("result").innerHTML = ("Result: win")
-        pp = pp + 1;
-    }
-    else if (x == "paper" && computerChoice == 2) {
-		document.getElementById("result").innerHTML = ("Result: draw")
-    }
-    else if (x == "paper" && computerChoice == 3) {
-        document.getElementById("result").innerHTML = ("Result: lose")
-        cp = cp + 1;
-    }
-    
-    else if (x == "scissors" && computerChoice == 1) {
-        document.getElementById("result").innerHTML = ("Result: lose")
-        cp = cp + 1;
-    }
-    else if (x == "scissors" && computerChoice == 2) {
-        document.getElementById("result").innerHTML = ("Result: win")
-        pp = pp + 1;
-    }
-    else if (x == "scissors" && computerChoice == 3) {
-		document.getElementById("result").innerHTML = ("Result: draw")
+rockBtn.addEventListener('click', () => {
+    playerChoice = 'Rock'
+    playRound()
+})
+
+paperBtn.addEventListener('click', () => {
+    playerChoice = 'Paper'
+    playRound()
+})
+
+scissorsBtn.addEventListener('click', () => {
+    playerChoice = 'Scissors'
+    playRound()
+})
+
+const playRound = () => {
+    let winner = ''
+
+    let random = Math.floor(Math.random() * 3)
+
+    if (random === 0) {
+        computerChoice = 'Rock'
+    } else if (random === 1) {
+        computerChoice = 'Paper'
+    } else {
+        computerChoice = 'Scissors'
     }
 
-    document.getElementById("p4").innerHTML = ("Computer's points: " + cp);
-    document.getElementById("p5").innerHTML = ("Player's points: " + pp);
+    if ((playerChoice === 'Rock' && computerChoice === 'Scissors') || (playerChoice === 'Paper' && computerChoice === 'Rock') || (playerChoice === 'Scissors' && computerChoice === 'Paper')) {
+        winner = 'Win'
+        playerPoints++
+    } else if ((playerChoice === 'Rock' && computerChoice === 'Paper') || (playerChoice === 'Paper' && computerChoice === 'Scissors') || (playerChoice === 'Scissors' && computerChoice === 'Rock')) {
+        winner = 'Lose'
+        computerPoints++
+    } else {
+        winner = 'Draw'
+    }
 
-    if (cp == 5) {
-        alert("Computer Wins!");
-        cp = 0;
-        pp = 0;
-        document.getElementById("p4").innerHTML = ("Computer's points: " + cp);
-        document.getElementById("p5").innerHTML = ("Player's points: " + pp);
-        document.getElementById("result").innerHTML = ("Result: ");
-        document.getElementById("p2").innerHTML = ("Player's choice: " );
-        document.getElementById("p1").innerHTML = ("Computer's choice: " );
-    }
-    else if (pp == 5) {
-        alert("Player Wins!");
-        cp = 0;
-        pp = 0;
-        document.getElementById("p4").innerHTML = ("Computer's points: " + cp);
-        document.getElementById("p5").innerHTML = ("Player's points: " + pp);
-        document.getElementById("result").innerHTML = ("Result: ");
-        document.getElementById("p2").innerHTML = ("Player's choice: " );
-        document.getElementById("p1").innerHTML = ("Computer's choice: " );
-    }
+    updatePoints()
+    updateChoices(winner)
+    checkWin()
+}   
+
+const updatePoints = () => {
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
 }
+
+const updateChoices = (winner) => {
+    let playerDiv = document.createElement('div')
+    let winnerDiv = document.createElement('div')
+    let computerDiv = document.createElement('div')
+
+    let choiceContainer = document.createElement('div')
+
+    playerDiv.textContent = playerChoice
+    winnerDiv.textContent = winner
+    computerDiv.textContent = computerChoice
+
+    choiceContainer.append(playerDiv, winnerDiv, computerDiv)
+    choiceContainer.classList.add('choicecontainer')
+
+    choiceBlock.removeChild(choiceBlock.lastChild)
+    choiceBlock.append(choiceContainer)
+
+    createLoader()
+}
+
+const createLoader = () => {
+    let loaderContainer = document.createElement('div')
+    let loader1 = document.createElement('div')
+    let loader2 = document.createElement('div')
+    let loader3 = document.createElement('div')
+    let emptyDiv1 = document.createElement('div')
+    let emptyDiv2 = document.createElement('div')
+    let choiceContainer = document.createElement('div')
+
+    loaderContainer.classList.add('loaderContainer')
+    loader1.classList.add('loader')
+    loader2.classList.add('loader')
+    loader3.classList.add('loader')
+    choiceContainer.classList.add('choicecontainer')
+
+    loaderContainer.append(loader1, loader2, loader3)
+
+    choiceContainer.append(emptyDiv1, loaderContainer, emptyDiv2)
+    choiceBlock.append(choiceContainer)
+}
+
+choiceBlock.removeChild(choiceBlock.lastChild)

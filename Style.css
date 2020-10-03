@@ -1,89 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 
-#wrapper {
-}
-
-div {
-  font-family:Arial, Helvetica, sans-serif;
-}
-
-#title {
+.header {
   text-align: center;
-  font-size: 50px;
-  font-family: 'Bangers', cursive;
+  font-size: 42px;
   margin: 0 auto;
-  background-color: rgb(160, 57, 57);
+  background-color: rgb(52, 57, 67);
   color: white;
+  font-weight: bold;
   padding: 10px;
+  box-shadow: 0px 10px 50px -20px rgba(0,0,0,0.5);
+  position: fixed;
+  width: 100%
 }
 
-#choiceblock {
-  display: flex;
-  width: 800px;
-  margin: 10px auto;
-}
-
-.choice {
-  margin: 0 auto;
-}
-
-#inputblock {
+.inputblock {
   display: flex;
   justify-content: space-around;
-  margin: 20px auto;
-  width: 400px;
+  margin: 150px auto 100px auto;
   padding: 10px;
+}
+
+.choiceblock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  background-color: rgb(52, 57, 67);
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.3);
+}
+
+.columnContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(244, 244, 244);
+}
+
+.column {
+  height: 100%;
+  width: 100%;
 }
 
 .btn {
-  border: solid;
-  border-color: rgb(160, 160, 160);
+  width: 150px;
+  height: 60px;
   border-radius: 10px;
-  background-color: rgb(240, 240, 240);
-  width: 80px;
-  height: auto;
+  margin: 0 20px;
+  background-color:rgb(0, 174, 239);
   text-align: center;
-  padding: 10px;
-  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
-  opacity: 60%;
+  line-height: 60px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: 0px 10px 0px 0px rgb(0, 145, 200);
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
 .btn:hover {
-  transform: scale(1.01);
-  cursor: pointer;
-  opacity: 100%;
+  background-color:rgb(34, 196, 255);
 }
 
 .btn:active {
-  transform: scale(0.99);
+  box-shadow: 0px 5px 0px 0px rgb(0, 145, 200);
+  transform: translateY(5px)
 }
 
-#rock:hover {
-  background-color: rgb(255, 200, 200);
-}
-
-#paper:hover {
-  background-color: rgb(200, 255, 200);
-}
-
-#scissors:hover {
-  background-color: rgb(200, 200, 255);
-}
-
-#result {
-  text-align: center;
-  margin: 40px 0;
-  font-weight: bold;
-}
-
-#pointsblock {
+.scoreContainer {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(52, 57, 67);
+  border-radius: 10px;
+  margin: 150px auto;
+  box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.3);
   display: flex;
-  width: 800px;
-  margin: 10px auto;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
 }
 
-.points {
-  margin: 0 auto;
+.scoreHeader {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-align: center;
+  line-height: 30px;
+}
+
+.choiceheader {
+  display: flex;
+  align-items: center;
+  color:black;
+  background-color: #fff;
+  padding: 20px 10px;
+  justify-content: space-around;
+}
+
+.choiceheader > div {
+  width: 180px;
+}
+
+.choiceheader > div:nth-child(2) {
+  width: 180px;
+  text-align: right;
+}
+
+.choicecontainer {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  justify-content: space-around;
+}
+
+.choicecontainer > div {
+  width: 50px;
+  text-align: center;
+}
+
+
+.loaderContainer {
+	display: flex;
+}
+
+.loader {
+	width: 10px;
+    height: 10px;
+    background-color: rgb(0, 174, 239);
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.loader:nth-child(1) {
+	animation: grow 0.6s ease-out infinite;
+}
+
+.loader:nth-child(2) {
+	animation: grow 0.6s ease-out infinite;
+    animation-delay: 0.2s
+}
+
+.loader:nth-child(3) {
+	animation: grow 0.6s ease-out infinite;
+	animation-delay: 0.4s    
+}
+
+@keyframes grow {
+  0% {transform: scale(1)}
+  50% {transform: scale(1.2)}
+  100% {transform: scale(1)}
 }
